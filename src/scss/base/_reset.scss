@@ -145,6 +145,7 @@ input {
 
 // 1. Addresses appearance set to searchfield in Safari 5, Chrome
 input[type='search'] {
+  appearance: textfield;
   -webkit-appearance: textfield; // 1
 }
 
