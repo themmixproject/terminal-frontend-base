@@ -1,4 +1,20 @@
-@import 'base/reset';
-@import 'base/vars';
-@import 'base/print';
-@import 'base/fonts';
+@import "base/reset";
+@import "base/vars";
+@import "base/print";
+@import "base/fonts";
+
+body {
+    background-color: black;
+    color: white;
+    font-family: "Courier New", Courier, monospace;
+}
+
+input {
+    border: 0;
+    font-family: "Courier New", Courier, monospace;
+    font-size: inherit;
+    padding: 0;
+    outline: 0;
+    background-color: black;
+    color: white;
+}
