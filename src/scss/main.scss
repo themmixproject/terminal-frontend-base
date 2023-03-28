@@ -25,4 +25,13 @@ input {
 
 .terminal-line-content {
     width: 100%;
+
+    input {
+        display: block;
+        width: 100%;
+        resize: none;
+        outline: none;
+        border: none;
+        box-sizing: border-box;
+    }
 }
