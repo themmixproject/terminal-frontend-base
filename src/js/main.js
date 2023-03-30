@@ -17,9 +17,7 @@ function print(text) {
     terminalWindow.appendChild(terminalLine);
 }
 
-print("Hello World!");
-
-function readLine(prompt) {
+function promptUser(prompt, processInput) {
     let terminalLine = createDiv("terminal-line", ">\xa0");
     let terminalLineContent = createDiv("terminal-line-content", prompt);
 
@@ -35,6 +33,22 @@ function readLine(prompt) {
     terminalWindow.appendChild(terminalLine);
 
     input.focus();
+
+    form.addEventListener("submit", function(event){
+        event.preventDefault();
+
+        let promptParent = form.parentElement;
+        promptParent.removeChild(form);
+        
+        let contentDiv = document.createElement("div");
+        contentDiv.innerHTML = input.value;
+        promptParent.appendChild(contentDiv);
+         
+        processInput(input.value);
+    });
 }
 
-readLine("Question? :");
+print("Hello World!")
+promptUser("What is your name? :", function(value){
+    print("Hello! " + value);
+})
