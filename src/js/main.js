@@ -2,6 +2,23 @@ import "../scss/main.scss";
 
 let terminalWindow = document.getElementById("terminal-window");
 
+
+document.addEventListener("click", function(){
+    focusOnInput();
+})
+
+document.addEventListener("touch", function(event){
+    event.preventDefault();
+    focusOnInput();
+})
+
+function focusOnInput(){
+    let input = document.getElementById("prompt-input");
+    if(input){
+        input.focus();
+    }
+}
+
 function createDiv(className, innerHTML) {
     let element = document.createElement("div");
     element.className = className;
@@ -34,21 +51,21 @@ function promptUser(prompt, processInput) {
 
     input.focus();
 
-    form.addEventListener("submit", function(event){
+    form.addEventListener("submit", function (event) {
         event.preventDefault();
 
         let promptParent = form.parentElement;
         promptParent.removeChild(form);
-        
+
         let contentDiv = document.createElement("div");
         contentDiv.innerHTML = input.value;
         promptParent.appendChild(contentDiv);
-         
+
         processInput(input.value);
     });
 }
 
-print("Hello World!")
-promptUser("What is your name? :", function(value){
-    print("Hello! " + value);
-})
+print("Hello World!");
+promptUser("What is your name? :", function (value) {
+    print("Hello " + value + "!");
+});
